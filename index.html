@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>RCPC</title>
+        <link href="css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body class="homepage">
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href=".">RCPC</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="active">
+                                <a href=".">Home</a>
+                            </li>
+                            <li >
+                                <a href="test/">About</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="disabled">
+                                <a rel="next" >
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="test/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#306">306实验室服务器使用规范</a></li>
+            <li><a href="#1">第1章 服务器概况</a></li>
+            <li><a href="#2">第2章 远程连接</a></li>
+            <li><a href="#3-anaconda">第3章 Anaconda虚拟环境配置</a></li>
+            <li><a href="#4">第4章 注意事项</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="306">306实验室服务器使用规范</h1>
+<h2 id="1">第1章 服务器概况</h2>
+<p>硬件资源：</p>
+<pre><code>| Device         | Details(x Number)    
+| ---------------| --------------------------------------------               
+| CPU            | Intel(R) Xeon(R) Silver 4114 CPU @ 2.20GHz x2      
+| GPU            | NVIDIA GeForce GTX 2080 Ti x4      
+| 磁盘           | 4TB      
+| 内存           | 128G
+</code></pre>
+<p>系统版本： Ubuntu18.04 -desktop LTS<br />
+开发工具<br />
+Pytorch<br />
+Tensorflow(keras)<br />
+NVIDIA Driver 418.67<br />
+CUDA 10.0<br />
+cuDNN 7.3.1<br />
+常用目录<br />
+/Share/dataset  数据集</p>
+<h2 id="2">第2章 远程连接</h2>
+<h3 id="21">2.1说明</h3>
+<p>&emsp;&emsp;虽然安装了ubuntu桌面版系统，但原则上普通用户只能通过ssh远程登陆使用，禁用Teamviewer等桌面远程软件。桌面系统一般情况下不使用，只是服务器出现问题时，管理员查看问题等使用，禁止安装桌面应用程序！<br />
+&emsp;&emsp;这个初衷一方面是为了更加有序的管理，能够使服务器稳定，高效的为大家提供服务；另外一方面，是利用这个机会，让大家对linux系统熟悉一些（毕竟是计算机专业，这个应该是基本功！）<br />
+&emsp;&emsp;服务器IP: 192.168.1.110   端口：默认22（如果有需要的话）<br />
+&emsp;&emsp;通过联系管理员，创建属于每个人自己的用户账号，密码。<br />
+&emsp;&emsp;ssh登陆远程服务器方法很简单,假设 用户名：liming ：<br />
+&emsp;&emsp;默认登陆后的目录在/home/liming, 这一目录也是该用户的根目录。</p>
+<h3 id="22">2.2远程登陆服务器方法</h3>
+<p>&emsp;&emsp;Linux 系统登陆方法：<br />
+&emsp;&emsp;(1)    打开终端<br />
+&emsp;&emsp;(2) ssh liming@192.168.1.110<br />
+&emsp;&emsp;(3) 接下来会提示输入登陆密码，输入密码即可登陆到服务器。</p>
+<p>&emsp;&emsp;Window系统登陆方法：<br />
+&emsp;&emsp;Windows下需要shell类型的工具，推荐使用MobaXterm软件ssh远程登陆，如图所示，点击Session,建立一个对话，然后利用ssh工具进行远程连接，类似linux,同样需要输入IP地址信息，用户名，端口默认即可！</p>
+<p><img alt="avatar" src="/images/2.2.png" />   </p>
+<h3 id="23">2.3 文件传输</h3>
+<p>&emsp;&emsp;（1）对于linux系统，可以使用类似window这样的远程连接工具进行文件传输，当然最好是使用命令行的命令：<br />
+&emsp;&emsp;使用scp命令，从本地传输到服务器和从服务器传输到本地的用法基本一致，只需在scp命令中按照 scp [-r] source destination 的顺序书写即可。  </p>
+<p>&emsp;&emsp;以本地数据传输到服务器为例：    <br />
+&emsp;&emsp;scp localeFile yourName@219.217.238.193:/yourServerHome<code>`</code>  <br />
+&emsp;&emsp;scp -r localeDirectory yourName@219.217.238.193:/yourServerHome`</p>
+<p>&emsp;&emsp;实在不行可在自己客户端下载 FileZilla  </p>
+<p>&emsp;&emsp;（2）对于window系统，MobaXterm软件可直接对文件进行拖拽操作，当然也可利用其中的命令行使用scp命令操作！</p>
+<h3 id="24-24-pycharm">2.4 2.4 Pycharm远程调试</h3>
+<h4 id="241">2.4.1  简介</h4>
+<p>&emsp;&emsp;Pycharm提供了一种很方便的远程调试功能，能够让我们在自己的机器上实现利用远程服务器的硬件资源进行代码调试。<br />
+&emsp;&emsp;前提条件：客户端安装pycharm 专业版（注1：社区版不行；注2：服务器端不需要安装pycharm! 因此服务器不要安装pycharm等IDE！）可上pycharm官网下载，然后网上有很多破解教程，此处给出我试过的几个破解方法网站：<br />
+&emsp;&emsp;https://blog.csdn.net/re_psyche/article/details/86469595<br />
+&emsp;&emsp;https://blog.csdn.net/qq_32811489/article/details/78636049</p>
+<h4 id="242">2.4.2 远程服务器配置</h4>
+<p>&emsp;&emsp;首先我们需要配置PyCharm同服务器的代码同步，打开Tools | Deployment | Configuration，点击左边的“+”添加一个部署配置，输入名字，类型选SFTP  </p>
+<p><img alt="avatar" src="/images/2.4.2.1.png" />   </p>
+<p>选择ok之后填入配置信息：</p>
+<p><img alt="avatar" src="/images/2.4.2.2.png" /><br />
+其中：SFTP host:  服务器IP地址 192.168.1.110
+&emsp;&emsp;root path: 是文件上传的根目录，注意这个目录必须用户名有权限创建文件, 是绝对路径,从系统根目录往下写; eg:对于用户liming而言,此处填写 /home/liming 才会到用户根目录下！<br />
+&emsp;&emsp;root path: User name、password 不用多说，远程登陆账号密码<br />
+&emsp;&emsp;root path: 然后配置映射，local path是你的工程目录，就是需要将本地这个目录同步到服务器上面，我填写的是项目根目录。 Deploy path on server 这里填写相对于root path的目录（<strong>特别注意：相对目录！！！</strong>），下面那个web path不用管。
+<img alt="avatar" src="/images/2.4.2.3.png" />  </p>
+<h4 id="243">2.4.3 上传与下载文件/文件对照/同步</h4>
+<p>（1）上传与下载文件：<br />
+&emsp;&emsp;有几种方法可以实现本地和远程文件的同步，手动和当文件保存后自动触发。这里我选择了手动，因为自动触发比如影响性能，PyCharm会卡，建议手动。<br />
+&emsp;&emsp;手动上传方式很简单，选择需要同步的文件或文件夹，然后选择 Tools | Deployment | Upload to sftp(这个是刚刚配置的部署名称)<br />
+&emsp;&emsp;下载文件也是一样，选择 Tools | Deployment | Download from sftp<br />
+（2）文件对照：<br />
+&emsp;&emsp;有时候你并不确定远程和本地版本的完全一致，需要去比较看看。PyCharm提供了对比视图来为你解决这个问题。选择Tools | Deployment | Browse Remote Host，打开远程文件视图，在右侧窗口就能看到远程主机中的文件.
+<img alt="avatar" src="/images/2.4.3.1.png" /><br />
+&emsp;&emsp;选择一个你想要对比的文件夹，点击右键-&gt;compare with Local，打开同步对比窗口，使用左右箭头来同步内容。<br />
+&emsp;&emsp;上面是服务器与本地对比，那么本地文件通服务器对比，就先在PyCharm里面选择文件或文件夹，然后右键-&gt;Deployment-&gt; compare with deployed version即可。</p>
+<p>（3）同步
+&emsp;&emsp;这简直是一个bug的功能，该功能能够迅速定位服务器端的文件/文件夹与本地文件夹中内容不一样的地方！<br />
+&emsp;&emsp;操作方式：tools -&gt;Deployment-&gt; sync with local  或者远程文件视图中右键-&gt;Deployment-&gt; sync with local
+<img alt="avatar" src="/images/2.4.3.2.png" />  </p>
+<h4 id="244">2.4.4 远程调试</h4>
+<p>（1）    配置远程调试python解释器<br />
+&emsp;&emsp;选择File | Settings，选择Project | Project Interpreter，然后在右边，点击那个小齿轮设置，如下图所示：<br />
+<img alt="avatar" src="/images/2.4.4.1.png" /><br />
+&emsp;&emsp;然后点击“add“: 如果之前配置过SFTP的话就直接选“Existing server  configuration”，然后选择刚刚的模板名称就可以了，由于我上面配置过就直接选模板;<br />
+<img alt="avatar" src="/images/2.4.4.2.png" /> <br />
+&emsp;&emsp;这里请特别注意看我的Python解释器是虚拟环境，使用conda建立的公共虚拟环境tensorflow,如果使用自己建立的虚拟环境，其python解释器路径应该在用户~/.conda/envs目录下！<br />
+<img alt="avatar" src="/images/2.4.4.3.png" /> <br />
+&emsp;&emsp;至此，远程调试配置完毕！<br />
+<img alt="avatar" src="/images/2.4.4.4.png" /> <br />
+（2） 开始调试<br />
+&emsp;&emsp;此时就可以利用设置断点进行程序调试而不会使自己的机器卡死！因为此时利用的是远程服务器的硬件资源！</p>
+<h2 id="3-anaconda">第3章 Anaconda虚拟环境配置</h2>
+<p>服务器公用环境中安装了Anaconda2019.03(python3.7), 一般情况下，我们跑程序基本都在虚拟环境中进行，目前针对不同的深度学习框架，提供了几个公用虚拟环境，可根据各自情况，选择合适的虚拟环境开展实验，目前提供的虚拟环境如下：<br />
+env    Python版本 深度学习框架
+tensorflow  3.6.8   Tensorflow1.13.1(keras2.2.4)
+py36pytorch 3.6.8   Pytorch 1.1
+py27keras   2.7.16  Tensorflow1.13.1(keras2.2.4)<br />
+&emsp;&emsp;具体每个虚拟环境其他包安装情况见特定虚拟环境。<br />
+&emsp;&emsp;当共用环境不满足个人使用的时候，可自行安装虚拟环境，然后在该虚拟环境中安装自己需要的python包，具体建立方法见anaconda常用命令。</p>
+<h3 id="31-anaconda">3.1 虚拟环境相关anaconda命令</h3>
+<p>&emsp;&emsp;进入虚拟环境： source/conda activate env_name<br />
+&emsp;&emsp;eg: 进入名为tensorflow的虚拟环境,当前面出现(tensorflow)说明虚拟环境激活成功。
+<img alt="avatar" src="/images/3.1.png" /><br />
+&emsp;&emsp;退出虚拟环境：  source deactivate env_name<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; conda deactivate</p>
+<p>&emsp;&emsp;查看当前可用虚拟环境：  conda env list/conda info -e<br />
+&emsp;&emsp;查看当前虚拟环境中安装python包： conda list<br />
+&emsp;&emsp;新建虚拟环境： conda create -n env_name python=x.x(3.6,2.7等版本)<br />
+&emsp;&emsp;其中的env_name 为自定义虚拟环境的名称，无特定命令要求。注意：新建的虚拟环境目录存在于个人用户文件夹下，具体目录为：~/.conda/env</p>
+<h3 id="32-pythonlinux">3.2 虚拟环境中python包安装/卸载方法(linux环境下)</h3>
+<p>&emsp;&emsp;Python包管理工具有很多，常用的有conda 和pip两个包管理工具，强烈推荐使用conda进行包管理，因为其安装简单，很多安装包打包一起下载，非常方便。</p>
+<h4 id="321-tensorflow">3.2.1 Tensorflow</h4>
+<p>&emsp;&emsp;安装指定版本的tensorflow-gpu:    conda install tensorflow-gpu==x.x.x  该操作会打包安装cuda、cudnn、tensorflow、tensorborad等安装包，针对利用pip安装操作复杂情况做了很好的优化，一步到位！<br />
+&emsp;&emsp;检测tensorflow是否使用GPU进行计算：进入python解释器（输入python即可），然后输入以下代码：<br />
+&emsp;&emsp;import tensorflow as tf <br />
+&emsp;&emsp;sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))<br />
+&emsp;&emsp;若日志信息有GPU信息，则表示使用了！</p>
+<h4 id="322-keras">3.2.2 keras</h4>
+<p>&emsp;&emsp;安装指定版本的keras-gpu(tensorflow后端)，因为keras以tensorflow或Theano为后端，此处以tensorflow后端为例。在安装好特定版本的tensorflow-gpu的基础之上，输入： conda install keras-gpu==x.x.x<br />
+&emsp;&emsp;测试keras是否安装成功与是否使用GPU计算，与tensorflow基本相同，此处不再赘述！</p>
+<h4 id="323-pytorch">3.2.3 pytorch</h4>
+<p>&emsp;&emsp;安装指定版本的pytorch:  安装pytorch很简单，登陆pytorch官方网站(https://pytorch.org/) ,主页有针对不同平台、不同python版本、不同pytorch版本以及不同包管理工具的命令生成小工具，很方便，很简单！但首先还是需要安装一些基本的包，如cuda, cudnn，numpy等:<br />
+&emsp;&emsp;Conda 安装cuda:  conda install cudatoolkit=x.x.x <br />
+&emsp;&emsp;Conda 安装cudnn conda install cudnn=x.x.x<br />
+&emsp;&emsp;Conda 安装 numpy conda install numpy=x.x.x
+<img alt="avatar" src="/images/3.2.3.1.png" /><br />
+&emsp;&emsp;检测是否成功安装pytorch，在虚拟环境中进入python解释器输入：<br />
+&emsp;&emsp;&emsp;&emsp;import torch<br />
+&emsp;&emsp;&emsp;&emsp;import torchvision<br />
+&emsp;&emsp;不报错证明安装成功！<br />
+&emsp;&emsp;检测pytorch是否可使用GPU：<br />
+&emsp;&emsp;print(torch.cuda.is_available())<br />
+&emsp;&emsp;返回True即为可用GPU进行计算！  </p>
+<p>安装其他需要的安装包也类似： conda install xxx==x.x.x<br />
+&emsp;&emsp;**注意：如果需要卸载相应安装包，由于安装深度学习框架相关包时是打包下载安装，因为卸载一个的同时，会将所有打包下载的相关依赖均卸载。其他一般的python包没有这个问题。<br />
+&emsp;&emsp;卸载包：    Conda remove xxx</p>
+<h6 id="_1"></h6>
+<p>&emsp;&emsp;<strong>Conda 安装包下载源设置：</strong> 当前由于版权问题，绝大多数国内源，如清华源，中科大源均于2019.5.4后均停止服务，后期恢复日期未定，这简直太残忍！后期若开发，再补充设置国内源方法。</p>
+<h6 id="_2"></h6>
+<p>&emsp;&emsp;<strong>Pip 安装方法：</strong>此处不做说明，如果有兴趣可以自行查阅安装方法，其实都差不多。此处只给大家提供设置pip国内源的方法，加速包下载过程，避免出现安装包下载缓慢的情况（默认情况下下载源在境外！）</p>
+<h6 id="_3">######################################################</h6>
+<p>&emsp;&emsp;<strong>Pip添加清华源（目前仍可用）：</strong><br />
+&emsp;&emsp;临时使用：<br />
+&emsp;&emsp;pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package<br />
+&emsp;&emsp;注意，simple 不能少, 是 https 而不是 http<br />
+&emsp;&emsp;设为默认(推荐)<br />
+&emsp;&emsp;升级 pip 到最新的版本 (&gt;=10.0.0) 后进行配置：<br />
+&emsp;&emsp;pip install pip -U<br />
+&emsp;&emsp;pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple<br />
+&emsp;&emsp;如果 pip 默认源的网络连接较差，临时使用本镜像站来升级 pip：<br />
+&emsp;&emsp;pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U<br />
+&emsp;&emsp;上述操作会在用户根目录下生成一个配置文件，该文件位置为：/.config/pip/pip.conf <br />
+&emsp;&emsp;利用vim查看该文件：<br />
+&emsp;&emsp;vim ~/.config/pip/pip.conf<br />
+&emsp;&emsp;现如下图所示说明配置成功！从此利用pip安装包速度起飞！！
+<img alt="avatar" src="/images/3.2.3.1.png" />  </p>
+<h6 id="_4"></h6>
+<h2 id="4">第4章 注意事项</h2>
+<h3 id="41-cpu">4.1 CPU多线程问题：</h3>
+<p>&emsp;&emsp;使用PyTorch、tensorflow、keras等提交任务时, System部分的CPU占比较高时，推荐在代码内部最开始的地方添加下列语句(其中num是在作业系统中申请的CPU线程数)，避免频繁切换线程造成系统CPU占用过高，影响自己和他人的运行速度。<br />
+&emsp;&emsp;Pytorch:<br />
+&emsp;&emsp;torch.set_num_threads(num) # Sets the number of OpenMP threads used for parallelizing CPU operations<br />
+&emsp;&emsp;tensorflow/keras:<br />
+&emsp;&emsp;cpu_config = tf.ConfigProto(intra_op_parallelism_threads = num, inter_op_parallelism_threads = num, device_count = {'CPU': num})<br />
+&emsp;&emsp;sess = tf.Session(config=cpu_config)</p>
+<h3 id="42-gpu">4.2 GPU多卡设置问题：</h3>
+<p>&emsp;&emsp;查看显卡信息命令： nvidia-smi<br />
+&emsp;&emsp;在用tensorflow、pytorch、keras等训练深度学习模型的时候，假设我们在训练之前没有指定GPU来进行训练，则默认的是选用第0块GPU来训练我们的模型，而且其它几块GPU的也会显示被占用。有些时候，我们更希望可以通过自己指定一块或者几块GPU来训练我们的模型，而不是用这种默认的方法。<br />
+&emsp;&emsp;现有GPU情况：
+ <img alt="avatar" src="/images/4.2.png" />  </p>
+<p>&emsp;&emsp;假设我们要用我们的第2块GPU来训练模型，此时可以通过下面的代码来指定(注意设备编号从0开始！)：<br />
+&emsp;&emsp;•  import os<br />
+&emsp;&emsp;•  os.environ['CUDA_VISIBLE_DEVICES']='1'<br />
+&emsp;&emsp;同样，如果要指定2，3块GPU来训练，则上面的代码可以改成：<br />
+&emsp;&emsp;os.environ['CUDA_VISIBLE_DEVICES']='1，2'  </p>
+<h3 id="43">4.3 重要</h3>
+<p>&emsp;&emsp;最后，但是也很重要的是，遇到问题，请联系管理员！</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2019-06-05 01:05:04
+-->
